@@ -4,7 +4,7 @@ Simple auto commit & push bot.
 Usage:
   python commit_bot.py --repo "C:/path/to/repo" --branch main
 
-The script will create/update a timestamped file under .auto_contrib/, git add, commit and push.
+The script will create/update a timestamped file under commit auto_contrib/, git add, commit and push.
 
 Notes:
 - Make sure the machine has git installed and accessible in PATH.
@@ -50,7 +50,7 @@ def main() -> int:
     if args.file:
         target = repo / args.file
     else:
-        folder = repo / ".auto_contrib"
+        folder = repo / ".commit"
         folder.mkdir(parents=True, exist_ok=True)
         target = folder / f"contrib-{datetime.utcnow().strftime('%Y%m%d')}.txt"
 
